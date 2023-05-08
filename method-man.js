@@ -12,10 +12,10 @@ const words = (str) => str.split(' ');
 const sentence = (array) => array.join(' ');
 const yell = (str) => str.toUpperCase();
 const whisper = (str) => '*'.concat(str.toLowerCase()).concat('*');
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 console.log(words('hello world'));
 console.log(sentence(['hello', 'world']));
 console.log(yell('hello world'));
 console.log(whisper('HELLO WORLD'));
-console.log(capitalize('hello world'));
+console.log(capitalize('hELLO WORLD'));
