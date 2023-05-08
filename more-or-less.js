@@ -6,7 +6,7 @@
 // sub that takes 2 arguments and subtracts the second argument from the first.
 // All the functions must return the result of the operations specified above.
 
-more = (n) => n++;
-less = (n) => n--;
+more = (n) => n+1;
+less = (n) => n-1;
 add = (n, m) => n + m;
 sub = (n, m) => n - m;
