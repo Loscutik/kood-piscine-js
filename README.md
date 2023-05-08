@@ -12,7 +12,7 @@
 9. dog-years
 10. circular
 11. biggie-smalls
-method-man
+12. method-man
 abs
 min-max
 sign
