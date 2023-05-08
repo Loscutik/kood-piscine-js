@@ -5,4 +5,4 @@ Create a function named abs that takes a number as an argument and returns its a
 */
 
 const isPositive = (num) => num > 0;
-const abs = (num) => isPositive(num) ? num : -num;
+const abs = (num) => num>=0 ? num : -num;
