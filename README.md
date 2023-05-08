@@ -7,7 +7,7 @@
 4. more-or-less
 5. returns
 6. last-first-kiss
-concat-str
+7. concat-str
 change
 dog-years
 circular
