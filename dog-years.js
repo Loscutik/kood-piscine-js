@@ -32,7 +32,7 @@ const dogYears = (planet, dogAge) => {
 
 
 
-    return (dogAge / planetsYearsInSeconds[planet] * DOG_YEARS).toFixed(2);
+    return Number((dogAge / planetsYearsInSeconds[planet] * DOG_YEARS).toFixed(2));
 }
 
 console.log(dogYears('earth', 1_000_000_000));
