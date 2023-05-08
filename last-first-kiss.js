@@ -10,7 +10,7 @@ kiss: that takes an array or string, and returns an array of 2 elements. The ret
 
 const first = (array) => array[0];
 const last = (array) => array[array.length - 1]
-const kiss = (array) => [array[0], array[array.length - 1]]
+const kiss = (array) => [array[array.length - 1], array[0]]
 
 console.log(first([1, 2, 3]));
 console.log(last([1, 2, 3]));
