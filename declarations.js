@@ -19,6 +19,7 @@ const escapeStr = `\`\\ / " '`;
 const arr = [4, '2'];
 const obj = {
     str: "string value",
+    num: 45,
     bool: true,
     undef: undefined
 };
