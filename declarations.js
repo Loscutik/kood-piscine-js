@@ -24,6 +24,8 @@ const obj = {
     undef: undefined
 };
 
+
+
 const nested = {
     arr: [4, undefined, '2'],
     obj: {
@@ -33,3 +35,6 @@ const nested = {
 
     }
 };
+Object.freeze( nested)
+Object.freeze( nested.arr)
+Object.freeze( nested.obj)
