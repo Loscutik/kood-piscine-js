@@ -8,7 +8,7 @@
 5. returns
 6. last-first-kiss
 7. concat-str
-change
+8. change
 dog-years
 circular
 biggie-smalls
