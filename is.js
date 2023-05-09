@@ -20,7 +20,7 @@ const is = {}
 */
 
 is.num = (value) => typeof value === 'number';
-is.nan = (value) => isNaN(value);
+is.nan = (value)=> value!== value, // or Number.isNaN(value);
 is.str = (value) => typeof value === 'string';
 is.bool = (value) => typeof value === 'boolean';
 is.undef = (value) => typeof value === 'undefined';
@@ -36,6 +36,8 @@ console.log('num(5): ', is.num(5));
 console.log('num(true) ', is.num(true));
 console.log('num("hhhhh"): ', is.num('hhhhh'));
 console.log('nan(NaN): ', is.nan(NaN));
+console.log('nan(4): ', is.nan(4));
+console.log('nan("NaN"): ', is.nan('NaN'));
 console.log('undef(undefined): ', is.undef(undefined));
 console.log('undef(null): ', is.undef(null));
 console.log("undef(''): ", is.undef(''));
