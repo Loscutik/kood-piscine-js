@@ -28,15 +28,20 @@ const objToArr = (obj) => Object.values(obj);
 const objToMap = (obj) => new Map(Object.entries(obj));
 const arrToObj = (arr) => Object.fromEntries(arr.entries());
 const strToObj = (str) => Object.fromEntries(str.split('').entries());
-
+/***
 const superTypeOf = (obj) => {
     const name = Object.prototype.toString.call(obj); //Object.prototype.toString() returns "[object Type]", where Type is the object type. 
     return name.slice(8, name.length - 1);
 }
+*/
+const superTypeOf = (obj) =>{
+    switch(true){
+        case obj === null:return 'null';
+        case obj === undefined:return 'undefined';
+        default: return obj.constructor.name; // doesn't work with null and undefined
 
-// const superTypeOf = (obj) =>obj.constructor.name; // doesn't work with null and undefined
-
-
+    } 
+}
 /* Tests */
 const str = 'hello'
 const arr = [1, 2, 1, 3]
