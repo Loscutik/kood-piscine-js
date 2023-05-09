@@ -13,20 +13,24 @@ is.fun: value is a function.
 is.truthy: value is truthy.
 is.falsy: value is falsy.
 */
+/*
+The provided code will be added to your solution, and does not need to be submitted.
 
-const is = {
-    num: (value) => typeof value === 'number',
-    nan: (value) => isNaN(value),
-    str: (value) => typeof value === 'string',
-    bool: (value) => typeof value === 'boolean',
-    undef: (value) => typeof value === 'undefined',
-    def: (value) => typeof value !== 'undefined',
-    arr: (value) => Array.isArray(value),
-    obj: (value) => typeof value === 'object',
-    fun: (value) => typeof value === 'function',
-    truthy: (value) => !!value,
-    falsy: (value) => !value
-}
+const is = {}
+*/
+
+is.num = (value) => typeof value === 'number';
+is.nan = (value) => isNaN(value);
+is.str = (value) => typeof value === 'string';
+is.bool = (value) => typeof value === 'boolean';
+is.undef = (value) => typeof value === 'undefined';
+is.def = (value) => typeof value !== 'undefined';
+is.arr = (value) => Array.isArray(value);
+is.obj = (value) => typeof value === 'object';
+is.fun = (value) => typeof value === 'function';
+is.truthy = (value) => !!value;
+is.falsy = (value) => !value;
+
 
 console.log('num(5): ', is.num(5));
 console.log('num(true) ', is.num(true));
