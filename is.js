@@ -73,5 +73,5 @@ console.log('falsy(0): ', is.falsy(0));
 console.log('falsy(-0): ', is.falsy(-0));
 console.log('falsy(0n): ', is.falsy(0n));
 console.log('falsy(""): ', is.falsy(""));
-console.log('falsy(document.all): ', is.falsy(document.all));
+// console.log('falsy(document.all): ', is.falsy(document.all)); // document.all is depricated
 console.log('falsy(15): ', is.falsy(15));
