@@ -40,10 +40,14 @@ t = time
 */
 
 const getAcceleration = (obj) => {
-    const a = obj.f / obj.m;
-    if (isNaN(a)) return "impossible";
-    return a;
-}
+    let a = obj.f / obj.m;
+    switch (true) {
+      case !isNaN(a = obj.f / obj.m): console.log("a1=", a); return a;
+      case !isNaN(a = obj.Δv / obj.Δt): console.log("a1=", a); return a;
+      case !isNaN(a = 2 * obj.d / obj.t ** 2): console.log("a1=", a); return a;
+      default: return "impossible";
+    }
+  }
 
 console.log(getAcceleration({
     f: 10,
