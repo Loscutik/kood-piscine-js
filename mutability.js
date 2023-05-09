@@ -8,7 +8,7 @@
 //     country: 'US',
 // }
 
-const clone1 = Object.assign({}, person);
+const clone1 = Object.assign({}, person); // will not work if there is a property with the type of 'object', use '_.cloneDeep(obj)'.
 const clone2 = Object.assign({}, person);
 
 const samePerson = person;
