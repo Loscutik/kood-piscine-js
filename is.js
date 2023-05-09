@@ -20,7 +20,7 @@ const is = {}
 */
 
 is.num = (value) => typeof value === 'number';
-is.nan = (value)=> value!== value, // or Number.isNaN(value);
+is.nan = (value) => value !== value; // or Number.isNaN(value)
 is.str = (value) => typeof value === 'string';
 is.bool = (value) => typeof value === 'boolean';
 is.undef = (value) => typeof value === 'undefined';
@@ -60,6 +60,10 @@ console.log('obj({}): ', is.obj({}));
 console.log('obj([]): ', is.obj([]));
 console.log('obj(function(){}): ', is.obj(function () { }));
 console.log('obj([6,7]): ', is.obj([6, 7]));
+console.log('obj({}): ', obj({}));
+console.log('obj({ length: 10 }): ', obj({ length: 10 }));
+console.log('{ length: 10 }, type: ', { length: 10 }, typeof obj({ length: 10 }));
+console.log('obj(Object.create(null)): ', obj(Object.create(null)));
 console.log('fun(function(){}): ', is.fun(function () { }));
 console.log('truthy(true): ', is.truthy(true));
 console.log('truthy([]): ', is.truthy([]));
