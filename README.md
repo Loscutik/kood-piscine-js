@@ -13,9 +13,9 @@
 10. circular
 11. biggie-smalls
 12. method-man
-abs
-min-max
-sign
+13. abs
+14. min-max
+15. sign
 is
 physics
 collections
