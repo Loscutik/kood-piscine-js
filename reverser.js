@@ -4,7 +4,7 @@ It should work like Array.reverse(), and of course you cannot use that.
 */
 
 const reverse = (arr) => {
-  if (typeof arr ==='string') {arr = arr.split('');}
+  if (typeof arr ==='string') {arr = arr.split('');} 
     for (let i = 0; i < Math.floor(arr.length / 2); i++) {
         let tmp = arr[i];
         arr[i] = arr[arr.length - 1 - i];
