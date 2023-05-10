@@ -26,53 +26,73 @@ function slice(array, start, end) {
     if (end === undefined) {
         end = array.length;
     }
-
+  
     start = +start;
     end = +end;
-
+  
     if (start < 0) {
         start += array.length;
         if (start < 0) start = 0;
     }
-
+  
     if (start >= array.length) return [];
-
-
+  
+  
     if (end < 0) {
         end += array.length;
         if (end < 0) end = 0;
     }
-
+  
     if (end >= array.length) end = array.length;
-
+  
     const sliceArray = [];
     for (let i = start; i < end; i++) {
         sliceArray.push(array[i]);
     }
+    if (typeof array ==='string') {return sliceArray.join('');}
     return sliceArray;
-}
-
-// TESTING
-const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
-
-console.log(slice(animals, 2));
-// Expected output: Array ["camel", "duck", "elephant"]
-
-console.log(slice(animals, 2, 4));
-// Expected output: Array ["camel", "duck"]
-
-console.log(slice(animals, 1, 5));
-// Expected output: Array ["bison", "camel", "duck", "elephant"]
-
-console.log(slice(animals, -2));
-// Expected output: Array ["duck", "elephant"]
-
-console.log(slice(animals, 2, -1));
-// Expected output: Array ["camel", "duck"]
-
-console.log(slice(animals,));
+  }
+  
+  // TESTING
+  let animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+  
+  console.log(slice(animals, 2));
+  // Expected output: Array ["camel", "duck", "elephant"]
+  
+  console.log(slice(animals, 2, 4));
+  // Expected output: Array ["camel", "duck"]
+  
+  console.log(slice(animals, 1, 5));
+  // Expected output: Array ["bison", "camel", "duck", "elephant"]
+  
+  console.log(slice(animals, -2));
+  // Expected output: Array ["duck", "elephant"]
+  
+  console.log(slice(animals, 2, -1));
+  // Expected output: Array ["camel", "duck"]
+  
+  console.log(slice(animals,));
   // Expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
-
-
-
-
+  
+   animals =  'elephant';
+  
+  console.log(slice(animals, 2));
+  // Expected output: Array ["camel", "duck", "elephant"]
+  
+  console.log(slice(animals, 2, 4));
+  // Expected output: Array ["camel", "duck"]
+  
+  console.log(slice(animals, 1, 5));
+  // Expected output: Array ["bison", "camel", "duck", "elephant"]
+  
+  console.log(slice(animals, -2));
+  // Expected output: Array ["duck", "elephant"]
+  
+  console.log(slice(animals, 2, -1));
+  // Expected output: Array ["camel", "duck"]
+  
+  console.log(slice(animals,));
+  // Expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+  
+  
+  
