@@ -69,11 +69,11 @@ const round = (num) => {
 }
 const trunc = (num) => { return num >= 0 ? floor(num) : ceil(num); }
 
-const nums = [3.7, -3.7, 3.1, -3.1]
-console.log(nums.map(round))
-console.log(nums.map(floor))
-console.log(nums.map(trunc))
-console.log(nums.map(ceil))
+const numss = [3.7, -3.7, 3.1, -3.1]
+console.log(numss.map(round))
+console.log(numss.map(floor))
+console.log(numss.map(trunc))
+console.log(numss.map(ceil))
   /*
 [ 4, -4, 3, -3 ]
 [ 3, -4, 3, -4 ]
