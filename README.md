@@ -23,14 +23,14 @@
 
 
 ## W1Q2
-repeat
-elementary
-index-of
-slicer
-keep-cut
-cut-corners
-reverser
-unbreakable
+0. repeat
+1. elementary
+2. index-of
+3. slicer
+4. keep-cut
+5. cut-corners
+6. reverser
+7. unbreakable
 chunky
 nasa
 molecules-cells
