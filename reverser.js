@@ -4,6 +4,7 @@ It should work like Array.reverse(), and of course you cannot use that.
 */
 
 const reverse = (arr) => {
+  if (typeof arr ==='string') {arr = arr.split('');}
     for (let i = 0; i < Math.floor(arr.length / 2); i++) {
         let tmp = arr[i];
         arr[i] = arr[arr.length - 1 - i];
@@ -19,3 +20,8 @@ console.log('array1:', array1);
 console.log('reversed array1:', reverse(array1));
 // Expected output: "array1:" Array ["three", "two", "one"]
 console.log('array1 after reverse:', array1);
+
+const str = 'hello';
+console.log('reversed array1:', reverse(str));
+// Expected output: "array1:" Array ["three", "two", "one"]
+console.log('array1 after reverse:', str);
