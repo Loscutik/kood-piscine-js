@@ -32,9 +32,9 @@
 6. reverser
 7. unbreakable
 8. chunky
-nasa
-molecules-cells
-get
+9. nasa
+10. molecules-cells
+11. get
 triangle
 pyramid
 flat
