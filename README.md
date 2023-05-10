@@ -35,7 +35,7 @@
 9. nasa
 10. molecules-cells
 11. get
-triangle
+12. triangle
 pyramid
 flat
 find-expression
