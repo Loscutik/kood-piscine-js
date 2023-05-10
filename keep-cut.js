@@ -25,11 +25,12 @@ function keepLast(str) {
     return str.slice(str.length - 2);
 }
 function keepFirstLast(str) {
+    if (str.length <= 4) {return str;}
     return `${str.slice(0, 2)}${str.slice(str.length - 2)}`;
 }
 
 // TESTING
-const animals = 'elephant';
+const animals = 'at';
 
 console.log(cutFirst(animals));
 
