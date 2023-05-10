@@ -1,5 +1,5 @@
 # Sprint JS
-## W1D1
+## W1Q1
 0. how-2-js
 1. primitives
 2. declarations
@@ -16,7 +16,29 @@
 13. abs
 14. min-max
 15. sign
-is
-physics
-collections
-block-chain
+16. is
+17. physics
+18. collections
+19. block-chain
+
+
+## W1Q2
+repeat
+elementary
+index-of
+slicer
+keep-cut
+cut-corners
+reverser
+unbreakable
+chunky
+nasa
+molecules-cells
+get
+triangle
+pyramid
+flat
+find-expression
+sums
+loop
+
