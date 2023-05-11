@@ -46,7 +46,7 @@ const divide = (a, b) => {
 
 // The largest integer smaller than or equal to x.
 const floor = (num) => {
-    if (num === Infinity || num === -Infinity || isNaN(num)) {
+    if (!isFinite(num)) {
         return num;
     }
     if (num === Number.MIN_VALUE) return 0;
@@ -54,12 +54,13 @@ const floor = (num) => {
     if (Number.isInteger(num)) return num;
     let power = 0;
     let num10=num
-    while (!Number.isInteger(num10)&&num10 !== Infinity && num10 !== -Infinity) {
+    while (!Number.isInteger(num10)&&isFinite(num10)) {
         num10 *= 10;
         power++;
     }
-    if (num10 === Infinity) {return 0}
-    if (num10 === -Infinity) {return -0}
+    // if (num10 === Infinity) {return 0}
+    // if (num10 === -Infinity) {return -0}
+    if(!isFinite(num10)){return 0}
     const int = divide(num10, 10 ** power);
     return num >= 0 ? int : int - 1;
 }
@@ -74,7 +75,7 @@ const ceil = (num) => {
 
 // returns the value of a number rounded to the nearest integer.
 const round = (num) => {
-    if (num === Infinity || num === -Infinity ||  isNaN(num)) return num;
+    if (!isFinite(num)) return num;
 
     const r = num - floor(num);
     return r > 0.5 ? floor(num) + 1 : floor(num);
@@ -82,9 +83,9 @@ const round = (num) => {
 const trunc = (num) => { return num >= 0 ? floor(num) : ceil(num); }
 
 
-/*
-const numss = [3.7, -3.7, 3.1, -3.1,  -Number.MIN_VALUE*10,  Number.NEGATIVE_INFINITY, 2]
 
+const numss = [3.7, -3.7, 3.1, -3.1, 'e', Number.MIN_VALUE*(1.0000000+Number.MIN_VALUE),  Number.NEGATIVE_INFINITY, 2]
+floor(-Number.MIN_VALUE*10)
 console.log("round\n", numss.map(round))
 console.log("floor\n", numss.map(floor))
 console.log("trunc\n", numss.map(trunc))
