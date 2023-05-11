@@ -9,8 +9,8 @@ For example, for the number 8, you must first multiply by 2 twice, and then add 
 Your function should return something like: 1 *2 *2 +4.
 
 */
-const add4 = '+4'
-const mul2 = '*2'
+// const add4 = '+4'
+// const mul2 = '*2'
 
 function findExpression(num) {
     if (num === 1) {
@@ -43,7 +43,7 @@ function check4(num) {
         return undefined;
     }
 }
-
+/*
 console.log(findExpression(14))
 console.log(findExpression(8))
 console.log(findExpression(10))
@@ -60,4 +60,4 @@ console.log(findExpression(63))
 console.log(findExpression(23))
 console.log(findExpression(103))
 console.log(findExpression(3))
-
+*/
