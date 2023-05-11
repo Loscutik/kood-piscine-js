@@ -43,7 +43,7 @@ function check4(num) {
         return undefined;
     }
 }
-
+/*
 console.log(findExpression(14))
 console.log(findExpression(8))
 console.log(findExpression(10))
@@ -60,4 +60,4 @@ console.log(findExpression(63))
 console.log(findExpression(23))
 console.log(findExpression(103))
 console.log(findExpression(3))
-
+*/
