@@ -10,6 +10,7 @@ function get(src, path) {
     const keys = path.split('.');
     let res = src;
     for (let key of keys) {
+        if (!res[key]) return undefined;
         res = res[key];
     }
     return res;
@@ -18,4 +19,5 @@ function get(src, path) {
 
 const src = { nested: { key: { key: 'peekaboo' } } }
 const path = 'nested.key'
+console.log(src["n"])
 console.log(get(src, path)) // -> 'peekaboo'
