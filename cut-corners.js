@@ -83,7 +83,7 @@ const round = (num) => {
 const trunc = (num) => { return num >= 0 ? floor(num) : ceil(num); }
 
 
-
+/*
 const numss = [3.7, -3.7, 3.1, -3.1, 'e', Number.MIN_VALUE*(1.0000000+Number.MIN_VALUE),  Number.NEGATIVE_INFINITY, 2]
 floor(-Number.MIN_VALUE*10)
 console.log("round\n", numss.map(round))
