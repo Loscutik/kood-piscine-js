@@ -7,7 +7,7 @@ function flat(arr, depth) {
     if (depth === undefined) {
         depth = 1;
     }
-    if (!Number.isFinite(depth) || depth < 0) {
+    if (Number.isNaN(depth) || depth < 0) {
         depth = 0;
     }
     if (depth === 0) {
@@ -25,9 +25,9 @@ function flat(arr, depth) {
 }
 
 //TEST
-const arr1 = [0, 1, 2, [3, 4, 5]];
+const arr1 = [0, 1, 2, [3, 4, [5]]];
 
-console.log('1:', flat(arr1));
+console.log('1:', flat(arr1,Infinity));
 // Expected output: Array [0, 1, 2, 3, 4]
 
 const arr2 = [0, 1, 2, [[[3, 4]]]];
