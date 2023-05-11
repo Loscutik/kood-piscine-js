@@ -36,7 +36,6 @@ const join = (arr, sep) => {
 //console.log('hello world'.indexOf('e',));
 let str = 'hello world';
 console.log(split(str, 'l', 0));
-console.log(str.split('l', 0));
 
 console.log(join(['1', 't'],));
 console.log(join(['1', 2], '-'));
