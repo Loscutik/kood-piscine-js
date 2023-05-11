@@ -46,11 +46,11 @@ const divide = (a, b) => {
 
 // The largest integer smaller than or equal to x.
 const floor = (num) => {
-    if (num === Infinity || num === -Infinity || num === NaN) {
+    if (num === Infinity || num === -Infinity || isNaN(num)) {
         return num;
     }
-    if (num===Number.MIN_VALUE) return 0;
-    if (num===-Number.MIN_VALUE) return -1;
+    if (num === Number.MIN_VALUE) return 0;
+    if (num === -Number.MIN_VALUE) return -1;
     if (Number.isInteger(num)) return num;
     let power = 0;
     while (!Number.isInteger(num * 10 ** power)) {
@@ -62,15 +62,15 @@ const floor = (num) => {
 
 const ceil = (num) => {
     if (Number.isInteger(num)) return num;
-    if (num===Number.MIN_VALUE) return 1;
-    if (num===-Number.MIN_VALUE) return 0;
+    if (num === Number.MIN_VALUE) return 1;
+    if (num === -Number.MIN_VALUE) return 0;
     return floor(num + 1);
 }
 
 
 // returns the value of a number rounded to the nearest integer.
 const round = (num) => {
-    if (num === Infinity || num === -Infinity || num === NaN) return num;
+    if (num === Infinity || num === -Infinity ||  isNaN(num)) return num;
 
     const r = num - floor(num);
     return r > 0.5 ? floor(num) + 1 : floor(num);
@@ -78,18 +78,19 @@ const round = (num) => {
 const trunc = (num) => { return num >= 0 ? floor(num) : ceil(num); }
 
 
-/*
-const numss = [3.7, -3.7, 3.1, -3.1, -0.4,Number.MIN_VALUE,-Number.MIN_VALUE,Number.NEGATIVE_INFINITY ,2 ]
 
+const numss = [3.7, -3.7, 3.1, -3.1, -0.4, NaN, Number.MAX_VALUE, -Number.MAX_VALUE, Number.NEGATIVE_INFINITY, 2]
+floor(NaN)
 console.log("round\n", numss.map(round))
 console.log("floor\n", numss.map(floor))
 console.log("trunc\n", numss.map(trunc))
 console.log("ceil\n", numss.map(ceil))
-console.log( 1-Number.MIN_VALUE, Number.NEGATIVE_INFINITY)
-console.log( Number.POSITIVE_INFINITY+1===Infinity, Number.NEGATIVE_INFINITY+1===-Infinity)
+console.log(1 - Number.MIN_VALUE, Number.NEGATIVE_INFINITY)
+console.log(Number.POSITIVE_INFINITY + 1 === Infinity, Number.NEGATIVE_INFINITY + 1 === -Infinity)
   /*
 [ 4, -4, 3, -3 ]
 [ 3, -4, 3, -4 ]
 [ 3, -3, 3, -3 ]
 [ 4, -3, 4, -3 ]
+NaN
 */
