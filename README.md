@@ -46,8 +46,8 @@
 1. its-a-match
 2. letter-space-number
 3. vowel-dots
-same-amount
-ion-out
+4. same-amount
+5. ion-out
 greedy-url
 group-price
 valid-ip
