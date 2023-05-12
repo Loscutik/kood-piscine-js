@@ -48,6 +48,6 @@
 3. vowel-dots
 4. same-amount
 5. ion-out
-greedy-url
+6. greedy-url
 group-price
 valid-ip
