@@ -5,7 +5,9 @@ only if that number has only one digit, and is not followed by any letter.
 */
 
 const letterSpaceNumber = (str) => {
-    return str.match(/\w \d(?=\W)/g);
+    let arr= str.match(/\w \d(?=\W)/g);
+    if (arr=== null){return [];}
+    else {return arr;}
 }
 
 console.log(letterSpaceNumber("It's 20 past 3"));
