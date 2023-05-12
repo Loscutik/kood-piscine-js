@@ -8,8 +8,8 @@ beginEnd: matches with the expression 'hi', only when it is exactly hi.
 */
 
 
-const normal=match(/hi/);
-const begin=match(/^hi/);
-const end=match(/hi$/);
-const beginEnd=match(/^hi$/);
+const normal=/hi/;
+const begin=/^hi/;
+const end=/hi$/;
+const beginEnd=/^hi$/;
 
