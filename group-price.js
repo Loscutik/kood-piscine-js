@@ -13,7 +13,9 @@ function groupPrice(str) {
     let result = [];
     let arr
     while ((arr = priceREgex.exec(str)) !== null) {
-        result.push(arr);
+        let tmp =[]
+        for(let a of arr){tmp.push(a)}
+        result.push(tmp);
     }
     return result;
 }
