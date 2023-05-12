@@ -36,9 +36,18 @@
 10. molecules-cells
 11. get
 12. triangle
-pyramid
-flat
-find-expression
-sums
-loop
+13. pyramid
+14. flat
+15. find-expression
+16. sums
+17. loop
 
+## W1Q3
+its-a-match
+letter-space-number
+vowel-dots
+same-amount
+ion-out
+greedy-url
+group-price
+valid-ip
