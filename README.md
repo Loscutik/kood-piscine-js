@@ -43,9 +43,9 @@
 17. loop
 
 ## W1Q3
-its-a-match
-letter-space-number
-vowel-dots
+1. its-a-match
+2. letter-space-number
+3. vowel-dots
 same-amount
 ion-out
 greedy-url
