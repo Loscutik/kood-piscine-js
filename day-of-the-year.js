@@ -8,11 +8,7 @@ function dayOfTheYear(date) {
     console.log(newYear);
     // in this way we solved the problem with the years before 1900, because Date(00) means Jan 1, 1900
     newYear.setDate(1);
-    console.log(newYear);
     newYear.setMonth(0);
-
-    console.log(date);
-    console.log(newYear);
 
     return Math.floor((date - newYear) / (1000 * 60 * 60 * 24)) + 1;
 
