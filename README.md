@@ -49,5 +49,16 @@
 4. same-amount
 5. ion-out
 6. greedy-url
-group-price
-valid-ip
+7. group-price
+8. valid-ip
+
+## W2Q4
+dr-strange
+date-is
+get-some-time
+rebecca-black
+match-cron
+count-leap-years
+day-of-the-year
+sunny-sunday
+unicode-technical-report-35
