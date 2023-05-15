@@ -58,7 +58,7 @@
 3. get-some-time
 4. rebecca-black
 5. match-cron
-count-leap-years
-day-of-the-year
-sunny-sunday
+6. count-leap-years
+7. day-of-the-year
+8. sunny-sunday
 unicode-technical-report-35
