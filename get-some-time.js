@@ -16,6 +16,7 @@ function firstDayWeek(week, year) {
     if (+week < 1 || +week > 53) return undefined;
     if (+year < 1 || +year > 9999) return undefined;
     const newYear = new Date();
+    // in this way we solved the problem with the years before 1900, because Date(00) means Jan 1, 1900
     newYear.setFullYear(year);
     newYear.setMonth(0);
     newYear.setDate(1);
