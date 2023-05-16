@@ -66,10 +66,10 @@
 ## W2Q5
 1. using-map
 2. using-filter
-using-reduce
-long-words
-for-each
-mapper
+3. using-reduce
+4. long-words
+5. for-each
+6. mapper
 filter
 reduce
 quantifiers
