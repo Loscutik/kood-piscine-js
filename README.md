@@ -74,7 +74,7 @@
 8. reduce
 9. quantifiers
 10. sweet-curry
-has-city
+11. has-city
 flow
 currify
 
