@@ -5,7 +5,7 @@ and that works like the Array.prototype.forEach method.
 */
 
 function forEach(arr, func) {
-    for (let elm of arr) {
-        func(elm);
+    for (let index = 0; index < arr.length;index++) {
+        func(arr[index],index, arr);
     }
 }
