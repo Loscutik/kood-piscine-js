@@ -25,7 +25,7 @@ function some(arr, func) {
     return false;
 }
 
-function every(arr, func) {
+function none(arr, func) {
     //return !arr.some(func);
     for (let i = 0; i < arr.length; i++) {
         if (func(arr[i],i,arr)) {
