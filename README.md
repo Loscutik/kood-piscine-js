@@ -61,4 +61,20 @@
 6. count-leap-years
 7. day-of-the-year
 8. sunny-sunday
-unicode-technical-report-35
+9. unicode-technical-report-35
+
+## W2Q5
+1. using-map
+2. using-filter
+using-reduce
+long-words
+for-each
+mapper
+filter
+reduce
+quantifiers
+sweet-curry
+has-city
+flow
+currify
+
