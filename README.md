@@ -72,8 +72,8 @@
 6. mapper
 7. filter
 8. reduce
-quantifiers
-sweet-curry
+9. quantifiers
+10. sweet-curry
 has-city
 flow
 currify
