@@ -70,8 +70,8 @@
 4. long-words
 5. for-each
 6. mapper
-filter
-reduce
+7. filter
+8. reduce
 quantifiers
 sweet-curry
 has-city
