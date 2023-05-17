@@ -75,6 +75,6 @@
 9. quantifiers
 10. sweet-curry
 11. has-city
-flow
-currify
+12. flow
+13. currify
 
