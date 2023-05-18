@@ -42,7 +42,7 @@ export function compose() {
 
 function generateClassesStyles() {
     let colorStyles = [];
-    for (let CodeLetter = 65; CodeLetter <= 91; CodeLetter++) {
+    for (let CodeLetter = 65; CodeLetter <= 90; CodeLetter++) {
         colorStyles.push(`.${String.fromCodePoint(CodeLetter)} { background: ${generateColor(CodeLetter)}; }`)
         colorStyles.push(`.${String.fromCodePoint(CodeLetter + 32)} { background: ${generateColor(CodeLetter + 32)}; }`)
     }
@@ -53,5 +53,5 @@ function generateClassesStyles() {
 }
 
 function generateColor(CodeLetter) {
-    return `rgb(${1 * CodeLetter % 256}, ${2 * CodeLetter % 256}, ${2 * CodeLetter % 256})`
+    return `rgb(${(20*CodeLetter) % 256}, ${(12 + 3*CodeLetter) % 256}, ${(2 * CodeLetter) % 256})`
 }
