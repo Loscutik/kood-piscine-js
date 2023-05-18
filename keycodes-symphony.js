@@ -29,7 +29,8 @@ export function compose() {
             let note = document.createElement('div');
             note.id = `note-${lastNote}`;
             note.classList.add('note');
-            note.classList.add(letter);
+            //note.classList.add(letter);
+            note.style.backgroundColor = generateColor(letter.charCodeAt(0));
             note.textContent = letter;
             document.body.append(note);
             lastNote++;
@@ -53,5 +54,5 @@ function generateClassesStyles() {
 }
 
 function generateColor(CodeLetter) {
-    return `rgb(${(20*CodeLetter) % 256}, ${(12 + 3*CodeLetter) % 256}, ${(2 * CodeLetter) % 256})`
+    return `rgb(${(20 * CodeLetter) % 256}, ${(12 + 3 * CodeLetter) % 256}, ${(2 * CodeLetter) % 256})`
 }
