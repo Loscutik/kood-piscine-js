@@ -53,5 +53,5 @@ function generateClassesStyles() {
 }
 
 function generateColor(CodeLetter) {
-    return `rgb(${20 * CodeLetter % 256}, ${2 * CodeLetter % 256}, ${2 * CodeLetter % 256})`
+    return `rgb(${1 * CodeLetter % 256}, ${2 * CodeLetter % 256}, ${2 * CodeLetter % 256})`
 }
