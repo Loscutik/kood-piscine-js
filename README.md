@@ -83,7 +83,7 @@
 2. build-brick-and-break
 3. harder-bigger-bolder-stronger
 4. pimp-my-style
-fifty-shades-of-cold
+5. fifty-shades-of-cold
 keycodes-symphony
 mouse-trap
 pick-and-click
