@@ -30,7 +30,7 @@ export function createCircle() {
         document.body.appendChild(circle);
 
     });
-    const box= document.getElementById('box');
+    //const box = document.getElementById('box');
     //box.addEventListener('mousemove', CaptureCircleInBox)
 }
 
@@ -46,6 +46,13 @@ export function moveCircle() {
             const circle = document.getElementById(`cr-${lastCircleNumber}`);
             const box = document.getElementById('box').getBoundingClientRect();
             let x = e.clientX, y = e.clientY;
+            if (x > box.left + CIRCLE_RADIUS &&
+                x < box.right - CIRCLE_RADIUS &&
+                y > box.top + CIRCLE_RADIUS &&
+                y < box.bottom - CIRCLE_RADIUS) {
+                circle.style.background = 'var(--purple)';
+                captured = true;
+            }
             if (captured) {
                 if (x < box.left + CIRCLE_RADIUS + 1) { x = box.left + CIRCLE_RADIUS + 1 } else if (x > box.right - CIRCLE_RADIUS - 1) { x = box.right - 1 - CIRCLE_RADIUS }
                 if (y < box.top + CIRCLE_RADIUS + 1) { y = box.top + CIRCLE_RADIUS + 1 } else if (y > box.bottom - CIRCLE_RADIUS - 1) { y = box.bottom - 1 - CIRCLE_RADIUS }
@@ -54,6 +61,7 @@ export function moveCircle() {
             circle.style.left = `${x - CIRCLE_RADIUS}px`;
         }
     }
+
     window.addEventListener('mousemove', movingCircle);
 }
 
@@ -74,25 +82,25 @@ export function setBox() {
     box.classList.add('box');
     document.body.appendChild(box);
 
-    const CaptureCircleInBox = (e) => {
-        if (lastCircleNumber > 0) {
-            let circle = document.getElementById(`cr-${lastCircleNumber}`);
-            const boxRect = document.getElementById('box').getBoundingClientRect();
-            const cons = document.getElementById('cons');
-            cons.textContent = `${e.clientX}-${e.offsetX}...${e.clientX}-${e.clientY}---${circle.offsetWidth}... ${box.offsetWidth}`;
-            if (e.clientX > boxRect.left + CIRCLE_RADIUS &&
-                e.clientX < boxRect.right - CIRCLE_RADIUS &&
-                e.clientY > boxRect.top + CIRCLE_RADIUS &&
-                e.clientY < boxRect.bottom - CIRCLE_RADIUS ) {
-             //   if (e.offsetX>CIRCLE_RADIUS && e.offsetY>CIRCLE_RADIUS && e.offsetX<box.offsetWidth-CIRCLE_RADIUS && e.offsetY<box.offsetHeight-CIRCLE_RADIUS) {
-                circle.style.background = 'var(--purple)';
-                captured = true;
-               // box.removeEventListener('mousemove', CaptureCircleInBox); 
-            }
-        }
-    }
+    // const CaptureCircleInBox = (e) => {
+    //     if (lastCircleNumber > 0) {
+    //         let circle = document.getElementById(`cr-${lastCircleNumber}`);
+    //         const boxRect = document.getElementById('box').getBoundingClientRect();
+    //         const cons = document.getElementById('cons');
+    //         cons.textContent = `${e.clientX}-${e.offsetX}...${e.clientX}-${e.clientY}---${circle.offsetWidth}... ${box.offsetWidth}`;
+            // if (e.clientX > boxRect.left + CIRCLE_RADIUS &&
+            //     e.clientX < boxRect.right - CIRCLE_RADIUS &&
+            //     e.clientY > boxRect.top + CIRCLE_RADIUS &&
+            //     e.clientY < boxRect.bottom - CIRCLE_RADIUS) {
+            //     //   if (e.offsetX>CIRCLE_RADIUS && e.offsetY>CIRCLE_RADIUS && e.offsetX<box.offsetWidth-CIRCLE_RADIUS && e.offsetY<box.offsetHeight-CIRCLE_RADIUS) {
+            //     circle.style.background = 'var(--purple)';
+            //     captured = true;
+            //     // box.removeEventListener('mousemove', CaptureCircleInBox); 
+    //         // }
+    //     }
+    // }
 
     //box.addEventListener('mousemove', CaptureCircleInBox);
-    window.addEventListener('mousemove', CaptureCircleInBox);
+    //window.addEventListener('mousemove', CaptureCircleInBox);
 }
 
