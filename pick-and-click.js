@@ -25,17 +25,18 @@ Use Math.round() to round the values.
 */
 
 export function pick(x, y) {
-    const body = document.body;
+    const body = document.querySelector('body');
     // create mark
     // let mark = document.createElement('div');
     // mark.id = `mark`;
     // mark.classList.add('mark');
-    // let mark = document.createElement('div');
-    // mark.id = `mark`;
-    // mark.classList.add('text');
-    // mark.style.margin = 'auto';
-    // mark.style.textAlignment='top';
-    // body.append(mark);
+
+    let mark = document.createElement('div');
+    mark.id = `mark`;
+    mark.classList.add('text');
+    mark.style.margin = 'auto';
+    mark.style.textAlignment='top';
+    body.append(mark);
 
     //create place for hsl value
     let hslPlace = document.createElement('div');
@@ -96,15 +97,14 @@ export function pick(x, y) {
     window.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-        //mark.textContent='x='+x+' y='+y +'w'+Math.floor(body.getBoundingClientRect().width);
         console.log(x, y);
         hue = Math.round(x * CoefX);
         luminosity = Math.round(y * CoefY);
-
+        
         let hsl = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
-
-        document.querySelector('body').style.background = 'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
-       // mark.style.background = hsl;
+        
+        body.style.background = hsl;//'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
+        mark.textContent='x='+ document.querySelector('body').style.background;
 
         huePlace.textContent = 'hue ' + hue;
         huePlace.style.color = hsl;
