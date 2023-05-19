@@ -27,9 +27,9 @@ Use Math.round() to round the values.
 export function pick(x, y) {
     const body = document.querySelector('body');
     // create mark
-    let mark = document.createElement('div');
-    mark.id = `mark`;
-    mark.classList.add('mark');
+    // let mark = document.createElement('div');
+    // mark.id = `mark`;
+    // mark.classList.add('mark');
 
     //create place for hsl value
     let hslPlace = document.createElement('div');
@@ -49,7 +49,7 @@ export function pick(x, y) {
     luminosityPlace.id = `luminosity`;
     luminosityPlace.classList.add('luminosity');
     luminosityPlace.classList.add('text');
-    body.append(mark, hslPlace, huePlace, luminosityPlace);
+    body.append(/*mark,*/ hslPlace, huePlace, luminosityPlace);
 
     const CoefX = 360 / body.getBoundingClientRect().width;
     const CoefY = 100 / body.getBoundingClientRect().height;
@@ -86,7 +86,7 @@ export function pick(x, y) {
         let hsl = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
 
         body.style.background = hsl;
-        mark.style.background = hsl;
+       // mark.style.background = hsl;
 
         huePlace.textContent = 'hue ' + hue;
         huePlace.style.color = hsl;
