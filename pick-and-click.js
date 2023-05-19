@@ -25,11 +25,17 @@ Use Math.round() to round the values.
 */
 
 export function pick(x, y) {
-    const body = document.querySelector('body');
+    const body = document.body;
     // create mark
     // let mark = document.createElement('div');
     // mark.id = `mark`;
     // mark.classList.add('mark');
+    // let mark = document.createElement('div');
+    // mark.id = `mark`;
+    // mark.classList.add('text');
+    // mark.style.margin = 'auto';
+    // mark.style.textAlignment='top';
+    // body.append(mark);
 
     //create place for hsl value
     let hslPlace = document.createElement('div');
@@ -49,10 +55,11 @@ export function pick(x, y) {
     luminosityPlace.id = `luminosity`;
     luminosityPlace.classList.add('luminosity');
     luminosityPlace.classList.add('text');
-    body.append(/*mark,*/ hslPlace, huePlace, luminosityPlace);
+    body.append(hslPlace, huePlace, luminosityPlace);
 
     const CoefX = 360 / body.getBoundingClientRect().width;
     const CoefY = 100 / body.getBoundingClientRect().height;
+    //mark.textContent='Cx='+CoefX;
     const Saturation = 50;
     let hue = 0;
     let luminosity = 0;
@@ -66,20 +73,21 @@ export function pick(x, y) {
     axisX.setAttribute('x1', 2);
     axisX.setAttribute('y1', 0);
     axisX.setAttribute('x2', 2);
-    axisX.setAttribute('y2', Math.round(body.getBoundingClientRect().height));
+    axisX.setAttribute('y2', Math.floor(body.getBoundingClientRect().height));
     let axisY = document.createElement('line');
     axisY.id='axisY';
     axisY.setAttribute('x1', 0);
     axisY.setAttribute('y1', 2);
-    axisY.setAttribute('x2', Math.round(body.getBoundingClientRect().width));
+    axisY.setAttribute('x2', Math.floor(body.getBoundingClientRect().width));
     axisY.setAttribute('y2',2 );
     svg.append(axisX,axisY);
     body.append(svg);
 
-    body.addEventListener('mousemove', (e) => {
+    window.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-
+        //mark.textContent='x='+x+' y='+y +'w'+Math.floor(body.getBoundingClientRect().width);
+        console.log(x, y);
         hue = Math.round(x * CoefX);
         luminosity = Math.round(y * CoefY);
 
@@ -104,7 +112,7 @@ export function pick(x, y) {
         axisY.setAttribute('y2', y);
     });
 
-    body.addEventListener('click', (e) => {
+    VTTRegion.addEventListener('click', (e) => {
         const x = e.clientX;
         const y = e.clientY;
 
