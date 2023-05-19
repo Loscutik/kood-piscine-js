@@ -80,10 +80,10 @@ export function setBox() {
             const boxRect = document.getElementById('box').getBoundingClientRect();
             const cons = document.getElementById('cons');
             cons.textContent = `${e.clientX}-${e.offsetX}...${e.clientX}-${e.clientY}---${circle.offsetWidth}... ${box.offsetWidth}`;
-            if (e.clientX > boxRect.left + CIRCLE_RADIUS + 1 &&
-                e.clientX < boxRect.right - CIRCLE_RADIUS - 1 &&
-                e.clientY > boxRect.top + CIRCLE_RADIUS + 1 &&
-                e.clientY < boxRect.bottom - CIRCLE_RADIUS - 1) {
+            if (e.clientX > boxRect.left + CIRCLE_RADIUS &&
+                e.clientX < boxRect.right - CIRCLE_RADIUS &&
+                e.clientY > boxRect.top + CIRCLE_RADIUS &&
+                e.clientY < boxRect.bottom - CIRCLE_RADIUS ) {
              //   if (e.offsetX>CIRCLE_RADIUS && e.offsetY>CIRCLE_RADIUS && e.offsetX<box.offsetWidth-CIRCLE_RADIUS && e.offsetY<box.offsetHeight-CIRCLE_RADIUS) {
                 circle.style.background = 'var(--purple)';
                 captured = true;
