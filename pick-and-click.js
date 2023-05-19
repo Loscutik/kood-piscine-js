@@ -103,7 +103,7 @@ export function pick(x, y) {
 
         let hsl = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
 
-        body.style.background = 'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
+        document.querySelector('body').style.background = 'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
        // mark.style.background = hsl;
 
         huePlace.textContent = 'hue ' + hue;
