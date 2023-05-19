@@ -76,7 +76,7 @@ export function pick(x, y) {
     svg.append(axisX,axisY);
     body.append(svg);
 
-    window.addEventListener('mousemove', (e) => {
+    body.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
 
@@ -104,7 +104,7 @@ export function pick(x, y) {
         axisY.setAttribute('y2', y);
     });
 
-    window.addEventListener('click', (e) => {
+    body.addEventListener('click', (e) => {
         const x = e.clientX;
         const y = e.clientY;
 
