@@ -15,6 +15,7 @@ createCircle:
 */
 let lastCircleNumber = 0;
 let captured = false;
+const CIRCLE_RADIUS = 25;
 
 export function createCircle() {
     window.addEventListener('click', (e) => {
@@ -22,13 +23,15 @@ export function createCircle() {
         captured = false;
         let circle = document.createElement('div');
         circle.id = `cr-${lastCircleNumber}`;
-        circle.style.top = `${e.clientY}px`;
-        circle.style.left = `${e.clientX}px`;
+        circle.style.top = `${e.clientY - CIRCLE_RADIUS}px`;
+        circle.style.left = `${e.clientX - CIRCLE_RADIUS}px`;
         circle.style.background = 'white';
         circle.classList.add('circle');
         document.body.appendChild(circle);
 
     });
+    const box= document.getElementById('box');
+    //box.addEventListener('mousemove', CaptureCircleInBox)
 }
 
 /*
@@ -42,15 +45,13 @@ export function moveCircle() {
         if (lastCircleNumber > 0) {
             const circle = document.getElementById(`cr-${lastCircleNumber}`);
             const box = document.getElementById('box').getBoundingClientRect();
-            const circleWidth = circle.getBoundingClientRect().width;
-            const circleHeight = circle.getBoundingClientRect().height;
             let x = e.clientX, y = e.clientY;
             if (captured) {
-                if (x < box.left + 1) { x = box.left + 1 } else if (x+circleWidth > box.right - 1) { x = box.right - 1-circleWidth }
-                if (y < box.top + 1) { y = box.top + 1 } else if (y+circleHeight > box.bottom - 1) { y = box.bottom - 1-circleHeight }
+                if (x < box.left + CIRCLE_RADIUS + 1) { x = box.left + CIRCLE_RADIUS + 1 } else if (x > box.right - CIRCLE_RADIUS - 1) { x = box.right - 1 - CIRCLE_RADIUS }
+                if (y < box.top + CIRCLE_RADIUS + 1) { y = box.top + CIRCLE_RADIUS + 1 } else if (y > box.bottom - CIRCLE_RADIUS - 1) { y = box.bottom - 1 - CIRCLE_RADIUS }
             }
-            circle.style.top = `${y}px`;
-            circle.style.left = `${x}px`;
+            circle.style.top = `${y - CIRCLE_RADIUS}px`;
+            circle.style.left = `${x - CIRCLE_RADIUS}px`;
         }
     }
     window.addEventListener('mousemove', movingCircle);
@@ -76,16 +77,22 @@ export function setBox() {
     const CaptureCircleInBox = (e) => {
         if (lastCircleNumber > 0) {
             let circle = document.getElementById(`cr-${lastCircleNumber}`);
-            //const boxRect = document.getElementById('box').getBoundingClientRect();
-            // const cons = document.getElementById('cons');
-            // cons.textContent = `${e.offsetX}-${e.offsetY}...${e.clientX}-${e.clientY}---${circle.offsetWidth}... ${ box.offsetWidth}`;
-            if (e.offsetX > 0 && e.offsetY > 0 && e.offsetX + circle.offsetWidth <  box.offsetWidth - 1 && e.offsetY + circle.offsetHeight < box.offsetHeight - 1) {
+            const boxRect = document.getElementById('box').getBoundingClientRect();
+            const cons = document.getElementById('cons');
+            cons.textContent = `${e.clientX}-${e.offsetX}...${e.clientX}-${e.clientY}---${circle.offsetWidth}... ${box.offsetWidth}`;
+            if (e.clientX > boxRect.left + CIRCLE_RADIUS + 1 &&
+                e.clientX < boxRect.right - CIRCLE_RADIUS - 1 &&
+                e.clientY > boxRect.top + CIRCLE_RADIUS + 1 &&
+                e.clientY < boxRect.bottom - CIRCLE_RADIUS - 1) {
+             //   if (e.offsetX>CIRCLE_RADIUS && e.offsetY>CIRCLE_RADIUS && e.offsetX<box.offsetWidth-CIRCLE_RADIUS && e.offsetY<box.offsetHeight-CIRCLE_RADIUS) {
                 circle.style.background = 'var(--purple)';
                 captured = true;
+               // box.removeEventListener('mousemove', CaptureCircleInBox); 
             }
         }
     }
 
-    box.addEventListener('mousemove', CaptureCircleInBox);
+    //box.addEventListener('mousemove', CaptureCircleInBox);
+    window.addEventListener('mousemove', CaptureCircleInBox);
 }
 
