@@ -86,7 +86,7 @@
 5. fifty-shades-of-cold
 6. keycodes-symphony
 7. mouse-trap
-pick-and-click
+8. pick-and-click
 gossip-grid
 where-do-we-go
 

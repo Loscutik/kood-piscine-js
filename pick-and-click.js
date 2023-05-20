@@ -59,7 +59,7 @@ export function pick(x, y) {
     body.append(hslPlace, huePlace, luminosityPlace);
 
     const CoefX = 360 / window.innerWidth;
-    const CoefY = 100 / window.innerWidth;
+    const CoefY = 100 / window.innerHeight;
     //mark.textContent='Cx='+CoefX;
     const Saturation = 50;
     let hue = 0;
