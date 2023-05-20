@@ -84,15 +84,15 @@ export function pick(x, y) {
     let bodyBg = eval('body', (body) => body.style.background)
     console.log(bodyBg)
 
-    const HSLToRGB = (h, s, l) => {
-        s /= 100;
-        l /= 100;
-        const k = n => (n + h / 30) % 12;
-        const a = s * Math.min(l, 1 - l);
-        const f = n =>
-            l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
-        return [Math.round(255 * f(0)), Math.round(255 * f(8)), Math.round(255 * f(4))];
-    };
+    // const HSLToRGB = (h, s, l) => {
+    //     s /= 100;
+    //     l /= 100;
+    //     const k = n => (n + h / 30) % 12;
+    //     const a = s * Math.min(l, 1 - l);
+    //     const f = n =>
+    //         l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+    //     return [Math.round(255 * f(0)), Math.round(255 * f(8)), Math.round(255 * f(4))];
+    // };
 
     body.addEventListener('mousemove', (e) => {
         const x = e.clientX;
@@ -100,12 +100,12 @@ export function pick(x, y) {
         hue = x * CoefX;
         luminosity = y * CoefY;
 
-        let hsl = `hsl(${Math.round(hue)}, ${Saturation}%, ${Math.round(luminosity)}%)`;
         let color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
-
+        
         document.querySelector('body').style.background = color;
         mark.textContent = 'x=' + document.querySelector('body').style.background;
-
+        
+        let hsl = `hsl(${Math.round(hue)}, ${Saturation}%, ${Math.round(luminosity)}%)`;
 
         huePlace.textContent = 'hue ' + Math.round(hue);
         huePlace.style.color = hsl;
