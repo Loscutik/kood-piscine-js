@@ -35,7 +35,7 @@ export function pick(x, y) {
     mark.id = `mark`;
     mark.classList.add('text');
     mark.style.margin = 'auto';
-    mark.style.textAlignment='top';
+    mark.style.textAlignment = 'top';
     body.append(mark);
 
     //create place for hsl value
@@ -67,20 +67,22 @@ export function pick(x, y) {
 
     let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     body.append(svg);
-    
-    let axisX = document.createElementNS('http://www.w3.org/2000/svg','line');
-    axisX.id='axisX';
+
+    let axisX = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    axisX.id = 'axisX';
     axisX.setAttribute('x1', '2');
     axisX.setAttribute('y1', '0');
     axisX.setAttribute('x2', '2');
     axisX.setAttribute('y2', `${Math.floor(body.getBoundingClientRect().height)}`);
-    let axisY = document.createElementNS('http://www.w3.org/2000/svg','line');
-    axisY.id='axisY';
+    let axisY = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    axisY.id = 'axisY';
     axisY.setAttribute('x1', 0);
     axisY.setAttribute('y1', 2);
     axisY.setAttribute('x2', Math.floor(body.getBoundingClientRect().width));
-    axisY.setAttribute('y2',2 );
-    svg.append(axisX,axisY);
+    axisY.setAttribute('y2', 2);
+    svg.append(axisX, axisY);
+    let bodyBg = eval('body', (body) => body.style.background)
+    console.log(bodyBg)
 
     const HSLToRGB = (h, s, l) => {
         s /= 100;
@@ -88,25 +90,27 @@ export function pick(x, y) {
         const k = n => (n + h / 30) % 12;
         const a = s * Math.min(l, 1 - l);
         const f = n =>
-          l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+            l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
         return [Math.round(255 * f(0)), Math.round(255 * f(8)), Math.round(255 * f(4))];
-      };
+    };
 
     window.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-        hue = Math.round(x * CoefX);
-        luminosity = Math.round(y * CoefY);
-        
-        let hsl = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
-        
-        document.body.style.background = hsl;//'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
-        mark.textContent='x='+ document.querySelector('body').style.background;
+        hue = x * CoefX;
+        luminosity = y * CoefY;
 
-        huePlace.textContent = 'hue ' + hue;
+        let hsl = `hsl(${Math.round(hue)}, ${Saturation}%, ${Math.round(luminosity)}%)`;
+        let color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
+
+        document.body.style.background = color;//'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
+        mark.textContent = 'x=' + document.querySelector('body').style.background;
+
+
+        huePlace.textContent = 'hue ' + Math.round(hue);
         huePlace.style.color = hsl;
 
-        luminosityPlace.textContent = 'luminosity ' + luminosity;
+        luminosityPlace.textContent = 'luminosity ' + Math.round(luminosity);
         luminosityPlace.style.color = hsl;
 
         hslPlace.textContent = hsl;
@@ -127,7 +131,7 @@ export function pick(x, y) {
         luminosity = Math.round(y * CoefY);
 
         let hsl = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
-        console.log(hsl);
+        //console.log(hsl);
         //let clipboard = new ClipboardEvent('copy', {clipboardData: (new DataTransfer).SetData('text/plain',hsl)});
         navigator.clipboard.writeText(hsl)
 
