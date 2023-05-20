@@ -94,7 +94,7 @@ export function pick(x, y) {
         return [Math.round(255 * f(0)), Math.round(255 * f(8)), Math.round(255 * f(4))];
     };
 
-    window.addEventListener('mousemove', (e) => {
+    body.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
         hue = x * CoefX;
@@ -103,7 +103,7 @@ export function pick(x, y) {
         let hsl = `hsl(${Math.round(hue)}, ${Saturation}%, ${Math.round(luminosity)}%)`;
         let color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
 
-        document.querySelector('body').style.background = color;//'rgb('+HSLToRGB(hue,50,luminosity).join(',')+')';//hsl;
+        document.querySelector('body').style.background = color;
         mark.textContent = 'x=' + document.querySelector('body').style.background;
 
 
@@ -123,7 +123,7 @@ export function pick(x, y) {
         axisY.setAttribute('y2', y);
     });
 
-    window.addEventListener('click', (e) => {
+    body.addEventListener('click', (e) => {
         const x = e.clientX;
         const y = e.clientY;
 
