@@ -58,8 +58,8 @@ export function pick(x, y) {
     luminosityPlace.classList.add('text');
     body.append(hslPlace, huePlace, luminosityPlace);
 
-    const CoefX = 360 / body.getBoundingClientRect().width;
-    const CoefY = 100 / body.getBoundingClientRect().height;
+    const CoefX = 360 / window.innerWidth;
+    const CoefY = 100 / window.innerWidth;
     //mark.textContent='Cx='+CoefX;
     const Saturation = 50;
     let hue = 0;
