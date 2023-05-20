@@ -66,23 +66,21 @@ export function pick(x, y) {
     let luminosity = 0;
 
     let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    // svg.setAttribute('width', Math.round(body.getBoundingClientRect().width));
-    // svg.setAttribute('height', Math.round(body.getBoundingClientRect().height));
-
-    let axisX = document.createElement('line');
+    body.append(svg);
+    
+    let axisX = document.createElementNS('http://www.w3.org/2000/svg','line');
     axisX.id='axisX';
-    axisX.setAttribute('x1', 2);
-    axisX.setAttribute('y1', 0);
-    axisX.setAttribute('x2', 2);
-    axisX.setAttribute('y2', Math.floor(body.getBoundingClientRect().height));
-    let axisY = document.createElement('line');
+    axisX.setAttribute('x1', '2');
+    axisX.setAttribute('y1', '0');
+    axisX.setAttribute('x2', '2');
+    axisX.setAttribute('y2', `${Math.floor(body.getBoundingClientRect().height)}`);
+    let axisY = document.createElementNS('http://www.w3.org/2000/svg','line');
     axisY.id='axisY';
     axisY.setAttribute('x1', 0);
     axisY.setAttribute('y1', 2);
     axisY.setAttribute('x2', Math.floor(body.getBoundingClientRect().width));
     axisY.setAttribute('y2',2 );
     svg.append(axisX,axisY);
-    body.append(svg);
 
     const HSLToRGB = (h, s, l) => {
         s /= 100;
@@ -97,7 +95,6 @@ export function pick(x, y) {
     window.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
-        console.log(x, y);
         hue = Math.round(x * CoefX);
         luminosity = Math.round(y * CoefY);
         
@@ -122,7 +119,7 @@ export function pick(x, y) {
         axisY.setAttribute('y2', y);
     });
 
-    VTTRegion.addEventListener('click', (e) => {
+    window.addEventListener('click', (e) => {
         const x = e.clientX;
         const y = e.clientY;
 
