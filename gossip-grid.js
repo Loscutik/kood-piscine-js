@@ -21,9 +21,10 @@ import { gossips } from './gossip-grid.data.js'
 let cardNumbers = gossips.length;
 export function grid() {
 
-    const cardForm = document.createElement('div');
+    const cardForm = document.createElement('form');
     cardForm.id = `cardForm`;
     cardForm.className = 'gossip';
+    cardForm.setAttribute('method','dialog');
 
     // const form = document.createElement('form');
     // form.id = `form`;
