@@ -100,7 +100,7 @@ export function pick(x, y) {
         hue = x * CoefX;
         luminosity = y * CoefY;
 
-        const color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
+        const color = `hsl(${hue}, 50%, ${luminosity}%)`;
         //let color = `rgb(`+ HSLToRGB( hue, Saturation, luminosity).join(', ')+`)`;
         
         document.body.style.background = color;
