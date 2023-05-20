@@ -94,7 +94,7 @@ export function pick(x, y) {
     //     return [Math.round(255 * f(0)), Math.round(255 * f(8)), Math.round(255 * f(4))];
     // };
 
-    body.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
         hue = x * CoefX;
@@ -123,7 +123,7 @@ export function pick(x, y) {
         axisY.setAttribute('y2', y);
     });
 
-    body.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
         const x = e.clientX;
         const y = e.clientY;
 
