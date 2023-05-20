@@ -100,22 +100,22 @@ export function pick(x, y) {
         hue = x * CoefX;
         luminosity = y * CoefY;
 
-        //let color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
-        let color = `rgb(`+ HSLToRGB( hue, Saturation, luminosity).join(', ')+`)`;
+        let color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
+        //let color = `rgb(`+ HSLToRGB( hue, Saturation, luminosity).join(', ')+`)`;
         
         document.querySelector('body').style.background = color;
-        mark.textContent = 'x=' + document.querySelector('body').style.background;
+        //mark.textContent = 'x=' + document.querySelector('body').style.background;
         
         let hsl = `hsl(${Math.round(hue)}, ${Saturation}%, ${Math.round(luminosity)}%)`;
 
         huePlace.textContent = 'hue ' + Math.round(hue);
-        huePlace.style.color = hsl;
+        huePlace.style.color = color;
 
         luminosityPlace.textContent = 'luminosity ' + Math.round(luminosity);
         luminosityPlace.style.color = hsl;
 
         hslPlace.textContent = hsl;
-        hslPlace.style.color = hsl;
+        hslPlace.style.color = color;
 
         axisX.setAttribute('x1', x);
         axisX.setAttribute('x2', x);
