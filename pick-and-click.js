@@ -100,11 +100,11 @@ export function pick(x, y) {
         hue = x * CoefX;
         luminosity = y * CoefY;
 
-        let color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
+        const color = `hsl(${hue}, ${Saturation}%, ${luminosity}%)`;
         //let color = `rgb(`+ HSLToRGB( hue, Saturation, luminosity).join(', ')+`)`;
         
-        document.querySelector('body').style.background = color;
-        //mark.textContent = 'x=' + document.querySelector('body').style.background;
+        document.body.style.background = color;
+        mark.textContent = 'x=' + document.querySelector('body').style.background;
         
         let hsl = `hsl(${Math.round(hue)}, ${Saturation}%, ${Math.round(luminosity)}%)`;
 

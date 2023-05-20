@@ -84,8 +84,8 @@
 3. harder-bigger-bolder-stronger
 4. pimp-my-style
 5. fifty-shades-of-cold
-keycodes-symphony
-mouse-trap
+6. keycodes-symphony
+7. mouse-trap
 pick-and-click
 gossip-grid
 where-do-we-go
