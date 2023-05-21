@@ -87,6 +87,6 @@
 6. keycodes-symphony
 7. mouse-trap
 8. pick-and-click
-gossip-grid
-where-do-we-go
+9. gossip-grid
+10. where-do-we-go
 
