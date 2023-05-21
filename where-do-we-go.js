@@ -79,8 +79,14 @@ export function explore() {
         prevScrollY = window.scrollY;
         if (placeNum !== currentPlaceNum) {
             currentPlaceNum = placeNum;
-            coords = placesList[currentPlaceNum].coordinates.split(' ');
-            ancore.href = `https://www.google.com/maps/place/${coords[0]}+${coords[1]}`
+            let coords = placesList[currentPlaceNum].coordinates
+        .split('°')
+        .join('%C2%B0')
+        .split('"')
+        .join('%22')
+        .split(' ')
+        .join('%20');
+    ancore.href = `https://www.google.com/maps/place/${coords}`
             ancore.setAttribute('target', '_blank');
             ancore.style.color = `${placesList[currentPlaceNum].color}`;
             ancore.textContent = `${placesList[currentPlaceNum].name}\n${placesList[currentPlaceNum].coordinates}`;
