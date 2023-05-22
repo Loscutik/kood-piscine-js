@@ -90,3 +90,19 @@
 9. gossip-grid
 10. where-do-we-go
 
+## W3Q7
+1. invert
+2. pick-omit
+3. fusion
+4. manipulate-values
+5. manipulate-keys
+6. manipulate-entries
+7. curry-entries
+. deep-copy
+. replica
+. pronoun
+. neuron
+. flagger
+. object
+
+
