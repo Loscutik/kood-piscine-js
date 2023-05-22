@@ -45,7 +45,7 @@ const superTypeOf = (obj) =>{
 /* Tests */
 const str = 'hello'
 const arr = [1, 2, 1, 3]
-const obj = { x: 45, y: 75, radius: 24 }
+const obj = { x: 45, y: 75, radius: 24, __proto__: { a: 1, b: 2, '3': 'c',}}
 const set = new Set()
 const map = new Map()
 set.add(1)
