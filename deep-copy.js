@@ -27,7 +27,7 @@ function deepCopy(obj) {
 }
 
 // Examples
-/*
+
 console.log(deepCopy({ user: 'mika', age: 37 }))
 console.log(deepCopy([1, 'a']))
 // nesting object
@@ -49,10 +49,10 @@ const obj1 = [r, Object.freeze([r, Object.freeze([r])])]
 const copy = deepCopy(obj1)
 console.log(obj1, copy)
 obj1[0] = 1
-console.log(obj1[0])
+console.log(obj1[0],copy[0])
 console.log('obj[1][1]', obj1[1][1])
-// obj1[1][1] = 55
-// console.log('obj[1][1]', obj1[1][1])
-// copy[1][1] = 55
-// console.log('copy[1][1]', copy[1][1])
-*/
+obj1[1][1] = 55
+console.log('obj[1][1]', obj1[1][1])
+console.log('copy[1][1]', copy[1][1])
+copy[1][1] = 55
+console.log('copy[1][1]', copy[1][1])
