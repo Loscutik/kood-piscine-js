@@ -34,18 +34,18 @@ const superTypeOf = (obj) => {
     return name.slice(8, name.length - 1);
 }
 */
-const superTypeOf = (obj) =>{
-    switch(true){
-        case obj === null:return 'null';
-        case obj === undefined:return 'undefined';
+const superTypeOf = (obj) => {
+    switch (true) {
+        case obj === null: return 'null';
+        case obj === undefined: return 'undefined';
         default: return obj.constructor.name; // doesn't work with null and undefined
 
-    } 
+    }
 }
 /* Tests */
 const str = 'hello'
 const arr = [1, 2, 1, 3]
-const obj = { x: 45, y: 75, radius: 24, __proto__: { a: 1, b: 2, '3': 'c',}}
+const obj1 = { x: 45, y: 75, radius: 24, __proto__: { a: 1, b: 2, '3': 'c', } }
 const set = new Set()
 const map = new Map()
 set.add(1)
@@ -59,7 +59,7 @@ map.set(4, 'd')
 
 console.log('str = ', str)
 console.log('arr = ', arr)
-console.log('obj = ', obj)
+console.log('obj = ', obj1)
 console.log('set = ', set)
 console.log('map = ', map)
 
@@ -71,14 +71,14 @@ console.log('setToStr(set): ', setToStr(set)) // -> '123'
 console.log('strToArr(str): ', strToArr(str)) // -> ['h', 'e', 'l', 'l', 'o']
 console.log('strToSet(str): ', strToSet(str)) // -> Set { 'h', 'e', 'l', 'o' }
 console.log('mapToObj(map): ', mapToObj(map)) // -> { a: 1, b: 2, '3': 'c', '4': 'd' }
-console.log('objToArr(obj): ', objToArr(obj)) // -> [45, 75, 24]
-console.log('objToMap(obj): ', objToMap(obj)) // -> Map { 'x' => 45, 'y' => 75, 'radius' => 24 }
+console.log('objToArr(obj): ', objToArr(obj1)) // -> [45, 75, 24]
+console.log('objToMap(obj): ', objToMap(obj1)) // -> Map { 'x' => 45, 'y' => 75, 'radius' => 24 }
 console.log('arrToObj(arr): ', arrToObj(arr)) // -> { '0': 1, '1': 2, '2': 1, '3': 3 }
 console.log('strToObj(str): ', strToObj(str)) // -> { '0': 'h', '1': 'e', '2': 'l', '3': 'l', '4': 'o' }
 
 console.log('superTypeOf(map)         : ', superTypeOf(map));
 console.log('superTypeOf(set)         : ', superTypeOf(set));
-console.log('superTypeOf(obj)         : ', superTypeOf(obj));
+console.log('superTypeOf(obj)         : ', superTypeOf(obj1));
 console.log('superTypeOf(str)         : ', superTypeOf(str));
 console.log('superTypeOf(666)         : ', superTypeOf(666));
 console.log('superTypeOf(NaN)         : ', superTypeOf(NaN));
