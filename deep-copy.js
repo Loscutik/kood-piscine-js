@@ -5,6 +5,7 @@ Create a function named deepCopy that copies objects and arrays recursively.
 function deepCopy(obj) {
     //const entries = Object.entries(obj);
     let result = Array.isArray(obj) ? [] : {};
+
     for (const key in obj) {
         if (Object.getPrototypeOf({ o: 2 }) === 'Object') {
             result[key] = deepCopy(obj[key]);
@@ -12,7 +13,7 @@ function deepCopy(obj) {
             result[key] = obj[key];
         }
     }
-    return result;
+    return Object.isFrozen(obj) ? Object.freeze(result) : result;
 
     //   if (Array.isArray(obj)) {
     //     return obj.map(deepCopy);
@@ -44,15 +45,15 @@ console.log(deepCopy(['b', { b: [3] }]))
 console.log(deepCopy([{ a: 5 }, ['b', { b: [3] }]]))
 console.log(deepCopy([{ a: () => { } }, ['b', { b: [3] }]]))
 
-const r = Math.random()
-const obj1 = [r, Object.freeze([r, Object.freeze([r])])]
-const copy = deepCopy(obj1)
-console.log(obj1, copy)
-obj1[0] = 1
-console.log(obj1[0],copy[0])
-console.log('obj[1][1]', obj1[1][1])
-obj1[1][1] = 55
-console.log('obj[1][1]', obj1[1][1])
-console.log('copy[1][1]', copy[1][1])
-copy[1][1] = 55
-console.log('copy[1][1]', copy[1][1])
+// const r = Math.random()
+// const obj1 = [r, Object.freeze([r, Object.freeze([r])])]
+// const copy = deepCopy(obj1)
+// console.log(obj1, copy)
+// obj1[0] = 1
+// console.log(obj1[0], copy[0])
+// console.log('obj[1][1]', obj1[1][1])
+// obj1[1][1] = 55
+// console.log('obj[1][1]', obj1[1][1])
+// console.log('copy[1][1]', copy[1][1])
+// copy[1][1] = 55
+// console.log('copy[1][1]', copy[1][1])
