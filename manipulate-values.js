@@ -24,6 +24,8 @@ function reduceValues(objWithNumbers, callBack, initialValue) {
     return values.reduce(callBack, initialValue);
 }
 
+// ---checking
+console.log(Object.entries({'a':5, __proto__: {b:10, c:15}, d:20})) // output: [ [ 'a', 5 ], [ 'd', 20 ] ]
 
 //Examples
 const nutrients = { carbohydrates: 12, protein: 20, fat: 5 }
