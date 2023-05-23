@@ -99,7 +99,7 @@
 6. manipulate-entries
 7. curry-entries
 8. deep-copy
-. replica
+9. replica
 . pronoun
 . neuron
 . flagger
