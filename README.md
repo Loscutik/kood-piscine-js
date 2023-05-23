@@ -100,9 +100,8 @@
 7. curry-entries
 8. deep-copy
 9. replica
-. pronoun
-. neuron
+10. pronoun
+11. neuron
 . flagger
-. object
 
 
