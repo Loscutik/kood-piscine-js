@@ -98,7 +98,7 @@
 5. manipulate-keys
 6. manipulate-entries
 7. curry-entries
-. deep-copy
+8. deep-copy
 . replica
 . pronoun
 . neuron
