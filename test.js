@@ -1,108 +1,113 @@
-function debounce(func, wait, options) {
-    var lastArgs,
-        lastThis,
-        maxWait,
-        result,
-        timerId,
-        lastCallTime,
-        lastInvokeTime = 0,
-        leading = false,
-        maxing = false,
-        trailing = true;
+/*
+  Promises
 
-    if (typeof func != 'function') {
-        throw new TypeError(FUNC_ERROR_TEXT);
-    }
+  While callbacks are sweet and simple to delay code execution, they have a
+  critical flaw: no return values !
 
-    function invokeFunc(time) {
-        var args = lastArgs,
-            thisArg = lastThis;
+  Promises are a way arround this issue, creating a state that will hold
+  the value of the callback once it's resolved.
 
-        lastArgs = lastThis = undefined;
-        lastInvokeTime = time;
-        result = func.apply(thisArg, args);
-        return result;
-    }
 
-    function leadingEdge(time) {
-        // Reset any `maxWait` timer.
-        lastInvokeTime = time;
-        // Start the timer for the trailing edge.
-        timerId = setTimeout(timerExpired, wait);
-        // Invoke the leading edge.
-        return leading ? invokeFunc(time) : result;
-    }
+*/
 
-    function remainingWait(time) {
-        var timeSinceLastCall = time - lastCallTime,
-            timeSinceLastInvoke = time - lastInvokeTime,
-            timeWaiting = wait - timeSinceLastCall;
 
-        return maxing
-            ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
-            : timeWaiting;
-    }
 
-    function shouldInvoke(time) {
-        var timeSinceLastCall = time - lastCallTime,
-            timeSinceLastInvoke = time - lastInvokeTime;
+// const vow = (then) => ({ then })
+// vow(resolve => setTimeout(resolve, 1000, 100))
+//   .then(console.log)
 
-        // Either this is the first call, activity has stopped and we're at the
-        // trailing edge, the system time has gone backwards and we're treating
-        // it as the trailing edge, or we've hit the `maxWait` limit.
-        return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
-            (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
-    }
 
-    function timerExpired() {
-        var time = Date.now();
-        if (shouldInvoke(time)) {
-            return trailingEdge(time);
-        }
-        // Restart the timer.
-        timerId = setTimeout(timerExpired, remainingWait(time));
-    }
 
-    function trailingEdge(time) {
-        timerId = undefined;
+// just chaining
+//const chain = (value) => ({ add: (x) => chain(value + x), value })
+//console.log(chain(0).add(10).add(20).add(30).add(5).value)
 
-        // Only invoke if we have `lastArgs` which means `func` has been
-        // debounced at least once.
-        if (trailing && lastArgs) {
-            return invokeFunc(time);
-        }
-        lastArgs = lastThis = undefined;
-        return result;
-    }
+// flattening
 
-    function debounced() {
-        var time = Date.now(),
-            isInvoking = shouldInvoke(time);
+const chain = (value) => ({ add: (x) => chain(value + (typeof x.value === 'number' ? x.value : x)), value })
+console.log(
+  chain(0).add(10).add(chain(0).add(10).add(20).add(30)).add(30).add(5).value
+)
+// vow chaining
+/*
+const vow = executor => ({
+  map: callback => vow(resolve => executor(value => resolve(callback(value)))),
+  run: () => executor(_ => _),
+})
 
-        lastArgs = arguments;
-        lastThis = this;
-        lastCallTime = time;
+vow(resolve => setTimeout(resolve, 1000, 100))
+  .map(n => n + 5)
+  .map(console.log)
+  .run()
 
-        if (isInvoking) {
-            if (timerId === undefined) {
-                return leadingEdge(lastCallTime);
-            }
-            if (maxing) {
-                // Handle invocations in a tight loop.
-                clearTimeout(timerId);
-                timerId = setTimeout(timerExpired, wait);
-                return invokeFunc(lastCallTime);
-            }
-        }
-        if (timerId === undefined) {
-            timerId = setTimeout(timerExpired, wait);
-        }
-        return result;
-    }
 
-    return debounced;
+//*/// flat map
+/*
+const vow = executor => ({
+  map: callback => vow(resolve => executor(value => resolve(callback(value)))),
+  flatMap: callback => vow(resolve => executor(value => {
+    value = callback(value)
+    return (value && typeof value.flatMap === 'function')
+      ? value.flatMap(resolve).run()
+      : resolve(value)
+  })),
+  run: () => executor(_ => _),
+})
+
+const v = vow(resolve => setTimeout(resolve, 1000, 100))
+v
+  .map(n => n + 5)
+  .flatMap(n => vow(resolve => setTimeout(resolve, 100, n + 10)))
+  .map(console.log)
+  .run()
+
+
+
+const vow = executor => {
+  const state = {
+    value: undefined
+  }
+
+  executor(value => state.value = value)
+
+  return state
 }
-let arr = [];
-const add = (arr, el) => arr.push(el)
-debounce(adding, 50)(arr1, 1)
-setTimeout(() => console.log(arr1), 60)
+
+
+const syncV = vow(setValue => setValue(10))
+console.log(syncV.value) // 10
+
+
+const asyncV = vow(setValue => setTimeout(() => setValue(15), 10))
+asyncV.value // undefined
+setTimeout(() => console.log(asyncV.value), 15) // will log 15
+
+*/
+
+
+// event
+const vow = executor => {
+  const state = {
+    value: undefined,
+    onValue: _ => _,
+  }
+
+  executor(value => state.onValue(state.value = value))
+
+  return state
+}
+
+
+const asyncV = vow(setValue => setTimeout(() => setValue(15), 10))
+asyncV.onValue = value => console.log('my value:', value)
+// will log my "my value: 15" after the 10 ms
+
+// Problem 1
+  // return value
+
+// Problem 2
+  // nesting (the pyramid)
+
+// Bonus 1
+  // composition
+
