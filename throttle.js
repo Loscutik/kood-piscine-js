@@ -49,7 +49,7 @@ function opThrottle(fn, wait, options) {
     let result;
     let intervalID;
     let lastInvokeTime = 0;
-    let lastCallTime = Date.now();
+    let lastCallTime;
     function invoke() {
         lastInvokeTime = Date.now();
         intervalID = undefined;
@@ -68,11 +68,13 @@ function opThrottle(fn, wait, options) {
                 return result;
             }
             if (trailing) {
-                const restTime = time - lastCallTime >= wait ? 0 : wait - (time - lastCallTime);
-                clearTimeout(intervalID);
-                intervalID = setTimeout(() => {
-                    invoke();
-                }, restTime);
+                if (lastCallTime) {
+                    const restTime = time - lastCallTime >= wait ? 0 : wait - (time - lastCallTime);
+                    clearTimeout(intervalID);
+                    intervalID = setTimeout(() => {
+                        invoke();
+                    }, restTime);
+                }
                 lastCallTime = time;
                 return result;
             }
