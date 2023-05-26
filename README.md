@@ -110,8 +110,8 @@
 3. interpolation
 4. keep-trying-or-giveup
 5. get-json
-. is-winner
-. gougle-search
+6. is-winner
+7. gougle-search
 . all
 . series
 . race
