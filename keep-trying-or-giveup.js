@@ -55,6 +55,7 @@ async function cb(t) {
     res = res / 1000 + 1;
     return res;
 }
-const tt = timeout(1, cb)
+const tt = timeout(10, cb)
 //cb(1000000000).then(v => console.log(v));
-tt(1000000000).then(v => console.log('tt:', v));
+tt(1000000000).then((v) => console.log('tt=',v));
+

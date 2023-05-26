@@ -104,4 +104,17 @@
 11. neuron
 12. flagger
 
+## W3Q8
+1. debounce
+2. throttle
+3. interpolation
+4. keep-trying-or-giveup
+5. get-json
+. is-winner
+. gougle-search
+. all
+. series
+. race
+
+
 
