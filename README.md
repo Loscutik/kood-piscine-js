@@ -112,9 +112,24 @@
 5. get-json
 6. is-winner
 7. gougle-search
-. all
-. series
-. race
+8. all
+9. series
+10. race
+
+## W4Q9
+1. verydisco
+2. verydisco-forever
+3. verydisco-reverso
+4. tell-me-how-many
+. tell-me-who
+. tell-me-vip
+. tell-it-cypher
+. friend-support
+. uninvited
+. gatecrashers
+. personal-shopper
+. happiness-manager
+
 
 
 
