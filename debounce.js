@@ -10,8 +10,8 @@ function debounce(fn, wait) {
     let result;
     let intervalID;
     function invoke() {
-        console.log('result: ' + result);
         result = fn.apply(null, args);
+        console.log(`result${wait}: ` + result);
         return result;
     }
     function debounced() {
@@ -19,11 +19,11 @@ function debounce(fn, wait) {
         // якщо ту ж дебаунсед функцію запущено знов, припинити виконання попередньої. 
         // Тобто це випадок коли було створено const deb=debounce(adding, 20); і потім запущено її декілька разів.
         clearInterval(intervalID);
-        console.log('-----int0 = ', intervalID);
+        //  console.log('-----int0 = ', intervalID);
         intervalID = setTimeout(invoke, wait);
 
-        console.log('int= ', intervalID);
-        console.log(`result${wait}: ` + result);
+        // console.log('int= ', intervalID);
+        // console.log(`result${wait}: ` + result);
         return result;
     }
     return debounced;
@@ -52,18 +52,33 @@ function opDebounce(fn, wait, leading) {
     return debounced;
 }
 
-let arr1 = [];
-const adding = (arr, el) => arr.push(el)
-let r = debounce(adding, 50)(arr1, 1)
-setTimeout(() => console.log('r10: ' + r), 15);
-r = debounce(adding, 10)(arr1, 2)
-console.log('r25: ' + r);
-r = debounce(adding, 10)(arr1, 3)
-console.log('r50: ' + r);
-setTimeout(() => console.log(arr1), 100)
-let arr2 = [];
-const deb = debounce(adding, 20);
-setTimeout(() => console.log('const deb 1: ' + deb(arr2, 20)), 10);
-setTimeout(() => console.log('const deb 1: ' + deb(arr2, 20)), 10);
-setTimeout(() => console.log(arr2), 100);
+// from Phind (like chatGPT)
+const debounce2 = (func, wait = 0) => {
+    let timeoutId;
 
+    return function (...args) {
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, wait);
+    };
+}
+
+let arr1 = [];
+const adding = (arr, el) =>  arr.push(el)
+let r = debounce(adding, 50)(arr1, 1)
+console.log('arr1: ' ,arr1);
+setTimeout(() => console.log('arr1: after 150 ' ,arr1), 150);
+r = debounce(adding, 20)(arr1, 2)
+r = debounce(adding, 10)(arr1, 3)
+let arr2 = [];
+let arr3 = [];
+const deb = debounce(adding, 20);
+let deb1 = deb(arr2, 'a');
+const deb2 = deb(arr3, 'b');
+setTimeout(() => console.log('let deb 1: ' + deb1), 10);
+setTimeout(() => console.log('const deb 2: ' + deb2), 150);
+
+setTimeout(() => console.log('arr2=', arr2), 100);
+setTimeout(() => console.log('arr3=', arr3), 100);
