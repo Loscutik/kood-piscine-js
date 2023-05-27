@@ -4,7 +4,6 @@ Create a verydisco-forever.mjs script that does exactly the same as you verydisc
 but writes the result in a verydisco-forever.txt file instead of printing it in the console.
 */
 import { writeFile } from 'node:fs/promises';
-import { Buffer } from 'node:buffer';
 
 
 let words = process.argv[2].split(' ');
