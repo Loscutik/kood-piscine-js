@@ -50,7 +50,7 @@ const guestData = (req, res) => {
     let credentials = Buffer.from(baseAuthorusation.slice(6), "base64").toString().split(':');
 
     if (!bestFriends.includes(credentials[0]) || credentials[1] !== 'abracadabra') {
-        errHandler('wrong credentials', 401, 'wrong credentials')
+        errHandler('wrong credentials', 401, 'Authorization Required%')
         return;
     }
     // reading the request body
