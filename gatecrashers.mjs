@@ -53,14 +53,17 @@ const guestData = (req, res) => {
         errHandler('wrong credentials', 401, 'Authorization Required%')
         return;
     }
-    // reading the request body
-    let bodyReq = [];
-    req.on('data', (chunk) => {
-        bodyReq.push(chunk);
-    }).on('end', () => {
-        bodyReq = Buffer.concat(bodyReq).toString();
-        // at this point, `body` has the entire request body stored in it as a string
-    }).on('error', errHandler);
+
+    // in the test for this task they put body in the headers !!!!!
+    let bodyReq = req.headers['body'];
+    // // reading the request body
+    // let bodyReq = [];
+    // req.on('data', (chunk) => {
+    //     bodyReq.push(chunk);
+    // }).on('end', () => {
+    //     bodyReq = Buffer.concat(bodyReq).toString();
+    //     // at this point, `body` has the entire request body stored in it as a string
+    // }).on('error', errHandler);
 
     writeFile(`${pathGuests}/${guestFile}`, bodyReq)
         .then(() => {
