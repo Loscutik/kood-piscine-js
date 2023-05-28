@@ -121,9 +121,9 @@
 2. verydisco-forever
 3. verydisco-reverso
 4. tell-me-how-many
-. tell-me-who
-. tell-me-vip
-. tell-it-cypher
+5. tell-me-who
+6. tell-me-vip
+7. tell-it-cypher
 . friend-support
 . uninvited
 . gatecrashers

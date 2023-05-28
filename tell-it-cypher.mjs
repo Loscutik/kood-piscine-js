@@ -8,7 +8,7 @@ decode: convert your file from base64, then save the result in a clear.txt file.
 Could take a string as third argument and use it as the new file name. Extension must be precised.
 */
 
-import { readdir, readFile, writeFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { Buffer } from "node:buffer";
 
 try {
