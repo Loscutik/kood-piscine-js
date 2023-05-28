@@ -124,7 +124,7 @@
 5. tell-me-who
 6. tell-me-vip
 7. tell-it-cypher
-. friend-support
+8. friend-support
 . uninvited
 . gatecrashers
 . personal-shopper
