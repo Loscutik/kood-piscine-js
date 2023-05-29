@@ -125,8 +125,8 @@
 6. tell-me-vip
 7. tell-it-cypher
 8. friend-support
-. uninvited
-. gatecrashers
+9. uninvited
+10. gatecrashers
 . personal-shopper
 . happiness-manager
 
