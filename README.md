@@ -127,7 +127,7 @@
 8. friend-support
 9. uninvited
 10. gatecrashers
-. personal-shopper
+11. personal-shopper
 . happiness-manager
 
 
